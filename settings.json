@@ -1,0 +1,13 @@
+{
+    "database": {
+        "host": "126",
+        "name": "dbInteracQuizz",
+        "user": "adminInteracQuizz",
+        "password": "loYyJpSh]sn/AC8="
+    },
+    
+    "email" : {
+        "from" : "bonjour@yohannmoy.fr"
+    }
+}
+
