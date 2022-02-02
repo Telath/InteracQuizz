@@ -1,6 +1,6 @@
 {
     "database": {
-        "host": "126",
+        "host": "localhost",
         "name": "dbInteracQuizz",
         "user": "adminInteracQuizz",
         "password": "loYyJpSh]sn/AC8="
