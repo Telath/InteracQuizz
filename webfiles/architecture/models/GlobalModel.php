@@ -34,7 +34,12 @@ class GlobalModel
     }
 
     public static function update(string $table, array $values,int $id):void{
-        $req = "UPDATE {$table} SET ";
+        foreach ($values as $key=>$value){
+            $keyValue .= $key." = '".$value."',";
+        }
+        $keyValue = trim($keyValue, ",");
+        $req = "UPDATE {$table} SET {$keyValue} WHERE id='{$id}'";
+        self::dbConnect()->prepare($req)->execute();
     }
 
 }
