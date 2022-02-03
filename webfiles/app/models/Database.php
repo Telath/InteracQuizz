@@ -1,5 +1,7 @@
 <?php
 
+require_once 'C:\laragon\www\interacquizz\InteraQuizz\InteracQuizz\webfiles\config\Config.php';
+
     class Database{
 
         private $conn;
@@ -7,10 +9,10 @@
 
         public function __construct(){
             // Connexion à la Database :
-            $hote = Config::getDatabase()["host"];
-            $dbname = Config::getDatabase()["name"];
-            $user = Config::getDatabase()["user"];
-            $pass = Config::getDatabase()["password"];
+            $hote = Config::databaseSettings()["host"];
+            $dbname = Config::databaseSettings()["name"];
+            $user = Config::databaseSettings()["user"];
+            $pass = Config::databaseSettings()["password"];
 
             $connexion = new PDO('mysql:host='.$hote.'; charset=UTF8; dbname='.$dbname.'', $user, $pass);
             $this->conn = $connexion;

@@ -1,5 +1,5 @@
 <?php
-
+require_once('C:\laragon\www\interacquizz\InteraQuizz\InteracQuizz\webfiles\app\models\Database.php');
 class GlobalModel
 {
     public static function insertDB(string $table,array $values):void{
@@ -14,7 +14,7 @@ class GlobalModel
 
         $req = "INSERT INTO {$table} ({$dbFeilds}) VALUES ($dbValues)";
 
-        self::dbConnect()->prepare($req)->execute();
+        Database::dbConnect()->prepare($req)->execute();
     }
 
     public static function queryFA(string $table,string $where = "",string $order = ""):array{
@@ -25,21 +25,22 @@ class GlobalModel
         if ($where){
             $req .= " WHERE {$where}";
         }
-        return self::dbConnect()->query($req)->fetchAll();
+        return Database::dbConnect()->query($req)->fetchAll();
     }
 
-    public static function delete(string $table,int $id):void{
-        $req = "DELETE FROM {$table} WHERE id=$id";
-        self::genericQuery($req)->fetchAll();
+    public static function delete(string $table,string $where):void{
+        $req = "DELETE FROM {$table} WHERE {$where}";
+        Database::dbConnect()->prepare($req)->execute();
     }
 
-    public static function update(string $table, array $values,int $id):void{
+    public static function update(string $table, array $values,string $where):void{
+        $keyValue = "";
         foreach ($values as $key=>$value){
             $keyValue .= $key." = '".$value."',";
         }
         $keyValue = trim($keyValue, ",");
-        $req = "UPDATE {$table} SET {$keyValue} WHERE id='{$id}'";
-        self::dbConnect()->prepare($req)->execute();
+        $req = "UPDATE {$table} SET {$keyValue} WHERE {$where}";
+        Database::dbConnect()->prepare($req)->execute();
     }
 
 }

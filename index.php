@@ -6,5 +6,6 @@
 
     var_dump($settings); */
 
-    require_once "./webfiles/config/Config.php";
-    var_dump(Config::databaseSettings());
+    require_once "webfiles/app/models/GlobalModel.php";
+
+GlobalModel::delete('users', "1");
