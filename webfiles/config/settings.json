@@ -5,7 +5,13 @@
         "user": "root",
         "password": "root"
     },
-    
+
+    "website" :{
+        "model" : "webfiles/app/models/",
+        "view" : "webfiles/app/views/",
+        "controller" : "webfiles/app/controllers/"
+    },
+
     "email" : {
         "from" : "bonjour@yohannmoy.fr"
     }

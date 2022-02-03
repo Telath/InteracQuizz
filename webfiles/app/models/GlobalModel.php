@@ -42,5 +42,4 @@ class GlobalModel
         $req = "UPDATE {$table} SET {$keyValue} WHERE {$where}";
         Database::dbConnect()->prepare($req)->execute();
     }
-
 }
