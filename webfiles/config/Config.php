@@ -17,9 +17,13 @@
             return self::$instance->settingsArray;
         }
         
-        public static function databaseSettings():array{
+        public static function dbSettings():array{
             return self::allSettings()["database"];
-        } 
+        }
+        
+        public static function webPath():array{
+            return self::allSettings()["website"];
+        }
     }
     
 
