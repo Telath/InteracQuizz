@@ -12,7 +12,8 @@
 
         }
 
-        public static function deleteNote($id){
-            $req = "SELECT FROM notes WHERE id=$id"
+        public static function deleteNote(string $table, int $id):void{
+            $req = "DELETE FROM {$table} WHERE id=$id";
+            self::genericQuery($req)->fetchAll();
         }
     }
