@@ -1,4 +1,5 @@
 <?php 
+    namespace webfiles\config;
 
     class Config{
         private $settingsArray;

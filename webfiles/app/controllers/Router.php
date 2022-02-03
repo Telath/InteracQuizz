@@ -1,4 +1,5 @@
 <?php 
+    use webfiles\config\Config;
 
     $url = $_GET["action"];
     $vue = explode("/", $url);
