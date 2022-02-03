@@ -1,8 +1,10 @@
 <?php
     use webfiles\config\Config;
+    use webfiles\app\controllers\Router;
     
     require_once("webfiles/app/Autoload.php");
-    require_once Config::webPath()["controller"]."Router.php";
+    Router::get(ltrim($_SERVER["REQUEST_URI"], '/'), "UserController");
+
 ?>
 
 
