@@ -13,10 +13,15 @@
             $controllerCall = self::$ctrlNameSpace."{$ctrlName}::render";
             $controllerCall($uri);
         }
+
+        public static function start(){
+            $url = $_SERVER["REQUEST_URI"];
+            $vue = explode("/", $url);
+            var_dump($vue);
+        }
     }
 
-/*     $url = $_SERVER["REQUEST_URI"];
-    $vue = explode("/", $url);
+/*     
 
     var_dump($vue); */
 
