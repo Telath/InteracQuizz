@@ -10,11 +10,8 @@
     var_dump($settings); */
 
 /*     require_once "./webfiles/config/Config.php";
-<<<<<<< HEAD
     var_dump(Config::databaseSettings()); */
 
 
 
-=======
     var_dump(Config::databaseSettings()); */
->>>>>>> ca4dfbfbc1ffcbf043edf08ecf8466790166226c
