@@ -1,0 +1,8 @@
+#Permet d'activer la réécriture d'url (Apache)
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Permet d'écrire une règle
+RewriteRule ^(.*) index.php?url=$1 [NC,L]
