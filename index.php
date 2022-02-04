@@ -6,6 +6,3 @@
     Router::get(ltrim($_SERVER["REQUEST_URI"], '/'), "UserController");
 
 ?>
-
-
-
