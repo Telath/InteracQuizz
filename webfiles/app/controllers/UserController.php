@@ -1,6 +1,9 @@
 <?php
 
-    class UserController{
+namespace webfiles\app\controllers;
+use webfiles\app\controllers\Controller;
+
+    class UserController  extends Controller{
         private static $table = "users";
 
         public static function userRegister(){

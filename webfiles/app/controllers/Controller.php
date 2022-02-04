@@ -1,28 +1,20 @@
 <?php 
+namespace webfiles\app\controllers;
 
-/* if(isset($_GET["action"])){
-    echo "Je suis un controller";
-}
+use webfiles\config\Config;
 
-else{
-    echo "ACCUEIL";
-} */
-
-class Controller{
+abstract class Controller{
 
     public static function render($vue):void{
 
         $viewPath = Config::webPath()["view"];
+        var_dump($viewPath."{$vue}.php");
 
         if(file_exists($viewPath."{$vue}.php")){
-            // Render la bonne vue //
             require_once $viewPath."{$vue}.php";
         }
         else{
-            // Render la bonne vue //
             require_once $viewPath."notFound-404.php";
         }
-
-
     }
 }

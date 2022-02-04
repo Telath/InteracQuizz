@@ -1,7 +1,9 @@
 <?php
 
-require_once 'C:\laragon\www\interacquizz\InteraQuizz\InteracQuizz\webfiles\config\Config.php';
+    namespace webfiles\app\models;
 
+    use webfiles\config\Config;
+    
     class Database{
 
         private $conn;
@@ -9,12 +11,12 @@ require_once 'C:\laragon\www\interacquizz\InteraQuizz\InteracQuizz\webfiles\conf
 
         public function __construct(){
             // Connexion à la Database :
-            $hote = Config::databaseSettings()["host"];
-            $dbname = Config::databaseSettings()["name"];
-            $user = Config::databaseSettings()["user"];
-            $pass = Config::databaseSettings()["password"];
+            $hote = Config::dbSettings()["host"];
+            $dbname = Config::dbSettings()["name"];
+            $user = Config::dbSettings()["user"];
+            $pass = Config::dbSettings()["password"];
 
-            $connexion = new PDO('mysql:host='.$hote.'; charset=UTF8; dbname='.$dbname.'', $user, $pass);
+            $connexion = new \PDO('mysql:host='.$hote.'; charset=UTF8; dbname='.$dbname.'', $user, $pass);
             $this->conn = $connexion;
         }
 
@@ -24,29 +26,5 @@ require_once 'C:\laragon\www\interacquizz\InteraQuizz\InteracQuizz\webfiles\conf
             }
             return self::$_instance->conn;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
