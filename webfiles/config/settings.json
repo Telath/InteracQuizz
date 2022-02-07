@@ -1,17 +1,24 @@
 {
     "database": {
         "host": "localhost",
-        "name": "dbInteracQuizz",
-        "user": "adminInteracQuizz",
-        "password": "loYyJpSh]sn/AC8="
+        "name": "courspoo",
+        "user": "root",
+        "password": ""
     },
 
     "website" :{
-        "model" : "webfiles/app/models/",
-        "view" : "webfiles/app/views/",
-        "controller" : "webfiles/app/controllers/"
+        "app":{
+            "model" : "webfiles/app/models/",
+            "view" : "webfiles/app/views/",
+            "controller" : "webfiles/app/controllers/"
+        },
+        "assets" :{
+            "css" : "webfiles/assets/css",
+            "js" : "webfiles/assets/js",
+            "img" : "webfiles/assets/img"
+        }
     },
-    
+
     "email" : {
         "from" : "bonjour@yohannmoy.fr"
     }

@@ -1,1 +1,1 @@
-<h1>Affichage d'un seul user</h1>
+<h1>Affichage du user <?php echo $userData["nom"]." ".$userData["prenom"]; ?> </h1>

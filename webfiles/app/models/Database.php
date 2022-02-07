@@ -27,28 +27,4 @@
             return self::$_instance->conn;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }

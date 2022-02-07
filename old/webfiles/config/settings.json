@@ -1,0 +1,19 @@
+{
+    "database": {
+        "host": "localhost",
+        "name": "dbInteracQuizz",
+        "user": "adminInteracQuizz",
+        "password": "loYyJpSh]sn/AC8="
+    },
+
+    "website" :{
+        "model" : "webfiles/app/models/",
+        "view" : "webfiles/app/views/",
+        "controller" : "webfiles/app/controllers/"
+    },
+    
+    "email" : {
+        "from" : "bonjour@yohannmoy.fr"
+    }
+}
+

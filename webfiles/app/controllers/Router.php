@@ -5,27 +5,39 @@
     class Router{
 
         private static $ctrlNameSpace = "webfiles\app\controllers\\";
-
-        // Methode qui permets de d'afficher une vue particulière
-         
-        public static function get(string $uri, string $ctrlName):void{
-
-            $controllerCall = self::$ctrlNameSpace."{$ctrlName}::render";
-            $controllerCall($uri);
-        }
-
+            
         public static function start(){
-            $url = $_SERVER["REQUEST_URI"];
-            $vue = explode("/", $url);
-            var_dump($vue);
+            $url = ltrim($_SERVER["REQUEST_URI"], '/');
+            $var = explode("/", $url);
+            
+            // Retire les élements vides du tableau //
+            // Permets ainsi de gérer le / sans rien derrière pour le dernier param de l'URL
+            $var = array_filter($var);
+
+            // Si le premier paramètre de l'URL est vide 
+            // On doit faire appel au Home Controller //
+            if(!$var){
+                $controllerCall = self::$ctrlNameSpace."HomeController::index";
+                $controllerCall();
+            }
+
+            else{
+                $ctrl = self::$ctrlNameSpace."{$var[0]}Controller::";
+
+                switch (count($var)) {
+                    case 1:
+                        $controllerCall = $ctrl."index";
+                        $controllerCall();
+                        break;
+                    case 2:
+                        $controllerCall = $ctrl."{$var[1]}";
+                        $controllerCall();
+                        break;
+                    case 3:
+                        $controllerCall = $ctrl."{$var[1]}";
+                        $controllerCall($var[2]);
+                        break;
+                } 
+            }
         }
     }
-
-/*     
-
-    var_dump($vue); */
-
-    // Redirige vers le controller spécifique //
-/*     Controller::render($vue[0]); */
-
-    /* Route::get('/pokedex', 'PokedexController@displayAllPokemons')->name('pokedex'); */

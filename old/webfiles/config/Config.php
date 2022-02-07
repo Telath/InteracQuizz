@@ -25,15 +25,6 @@
         public static function webPath():array{
             return self::allSettings()["website"];
         }
-
-        public static function appPath():array{
-            return self::webPath()["app"];
-        }
-
-        public static function assetsPath():array{
-            return self::webPath()["assets"];
-        }
-
     }
     
 
