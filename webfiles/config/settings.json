@@ -1,0 +1,26 @@
+{
+    "database": {
+        "host": "localhost",
+        "name": "interacquizz",
+        "user": "root",
+        "password": "root"
+    },
+
+    "website" :{
+        "app":{
+            "model" : "webfiles/app/models/",
+            "view" : "webfiles/app/views/",
+            "controller" : "webfiles/app/controllers/"
+        },
+        "assets" :{
+            "css" : "webfiles/assets/css",
+            "js" : "webfiles/assets/js",
+            "img" : "webfiles/assets/img"
+        }
+    },
+
+    "email" : {
+        "from" : "bonjour@yohannmoy.fr"
+    }
+}
+
