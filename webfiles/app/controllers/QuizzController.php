@@ -9,7 +9,7 @@
         
         private static $table = "quizz";
 
-        public static function all(){
+        public static function index(){
             $queryResult = Query::findAll(self::$table, 'id DESC');
             self::render('all', ["donnees" => $queryResult]);
         }
@@ -23,6 +23,7 @@
 
             $quizzID = QuizzModel::findQuizzId($quizzName);
             $quizzID = implode($quizzID);
+
             $queryQ = QuizzModel::findQuestion($quizzID, $questionId);
             $queryR = QuizzModel::findResponses($quizzID, $questionId);
 
