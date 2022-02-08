@@ -9,13 +9,15 @@ use webfiles\app\models\Query;
         private static $table = "users";
 
         public static function index(){
-            self::render("default");
-        }
-
-        public static function all(){
+            // self::render("default");
             $queryResult = Query::findAll(self::$table, 'id DESC');
             self::render('all', ["donnees" => $queryResult]);
         }
+
+        // public static function all(){
+        //     $queryResult = Query::findAll(self::$table, 'id DESC');
+        //     self::render('all', ["donnees" => $queryResult]);
+        // }
 
         public static function single($id){
             $queryResult = Query::single(self::$table, "id = {$id}");
@@ -32,5 +34,10 @@ use webfiles\app\models\Query;
         
         public static function userConnexion(){
 
+        }
+
+        public static function find($id){
+            $queryResult = Query::single(self::$table, "id = {$id}");
+            self::render('single', ["userData" => $queryResult]);
         }
     }

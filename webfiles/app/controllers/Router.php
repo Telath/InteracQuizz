@@ -31,9 +31,20 @@
                         $controllerCall();
                         break;
                     case 2:
+
+                        if(ctype_digit($var[1])){
+                            /* Loads single */
+                            $controllerCall = $ctrl."find";
+                            $controllerCall($var[1]);
+                        }
+                        else{
+                            $controllerCall = $ctrl."default";
+                            $controllerCall($var[1]);
+                        }
+
                         /* Loads single */
-                        $controllerCall = $ctrl."find";
-                        $controllerCall($var[1]);
+                        // $controllerCall = $ctrl."find";
+                        // $controllerCall($var[1]);
 /*                         QuizzController::find("html"); */
 
                         break;

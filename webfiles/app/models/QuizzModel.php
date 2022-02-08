@@ -3,8 +3,9 @@
     namespace webfiles\app\models;
     
     use webfiles\app\models\Database;
+    use webfiles\app\models\Model;
 
-    class QuizzModel
+    class QuizzModel extends Model
     {
         public static function single(string $name):array
         {
@@ -15,6 +16,16 @@
         public static function findQuizzId($name){
             $req = "SELECT id FROM techno WHERE nom LIKE '{$name}'";
             return Database::dbConnect()->query($req)->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        public static function findName($name){
+            $req = "SELECT quizz.nom FROM quizz INNER JOIN techno ON techno.id = quizz.technoid WHERE techno.nom LIKE '{$name}'";
+            $query = Database::dbConnect()->query($req)->fetch(\PDO::FETCH_ASSOC);
+
+            /* if query return false -> 404.php  */
+            Model::queryTest($query);
+            return $query;
+
         }
         
         public static function findQuestion($id, $questionId){

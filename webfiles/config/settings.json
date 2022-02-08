@@ -1,7 +1,7 @@
 {
     "database": {
         "host": "localhost",
-        "name": "courspoo",
+        "name": "interacquizz",
         "user": "root",
         "password": ""
     },

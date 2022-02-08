@@ -11,6 +11,9 @@
 
         public static function index(){
             $queryResult = Query::findAll(self::$table, 'id DESC');
+            for ($i=0; $i < count($queryResult); $i++){
+                $queryResult[$i]["techno"] = Query::single("techno", "id = {$queryResult[$i]["technoid"]}");
+            }
             self::render('all', ["donnees" => $queryResult]);
         }
 
@@ -28,6 +31,14 @@
             $queryR = QuizzModel::findResponses($quizzID, $questionId);
 
             self::render('single', ["Questions"=>$queryQ, "Answers"=>$queryR]);
+        }
+
+        public static function default($quizzName){
+
+            /* Find the name, content & title of the quizz */
+            $queryN = QuizzModel::findName($quizzName);
+            /* Render the default view, array with title and the technology */
+            self::render('default', ["Name"=>$queryN, "Techno"=>$quizzName]);
         }
 
     }

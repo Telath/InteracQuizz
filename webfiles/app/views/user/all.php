@@ -5,6 +5,6 @@
 
 <ul>
     <?php foreach($donnees as $single):?>
-        <li><?= $single["nom"]; ?></li>
+        <li><a href="/user/<?= $single['id'] ?>"><?= $single["nom"]; ?></a></li>
     <?php endforeach; ?>
 </ul>
