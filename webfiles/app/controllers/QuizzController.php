@@ -41,4 +41,17 @@
             self::render('default', ["Name"=>$queryN, "Techno"=>$quizzName]);
         }
 
+        public static function edit($quizzName){
+
+            /* Find the name, content & title of the quizz */
+            $queryN = QuizzModel::findName($quizzName);
+            var_dump($queryN, $quizzName);
+            /* Render the default view, array with title and the technology */
+            self::render('edit', ["Name"=>$queryN, "Techno"=>$quizzName]);
+        }
+
+        public static function notes($quizzName){
+
+        }
+
     }

@@ -51,17 +51,20 @@
                     case 3:
                         // If the 3rd parameter is integer //
                         if(ctype_digit($var[2])){
-                                                    /* Loads single */
+                            /* Loads single */
                             $controllerCall = $ctrl."find";
                             $controllerCall($var[1], $var[2]);
-/*                             echo "Salut les potes à la compote."; */
-/*                             QuizzController::find("html", "1");
+                            /*                             echo "Salut les potes à la compote."; */
+                            /*                             QuizzController::find("html", "1");
                             UserController::find("session", "1"); */
                         }
-
+                        
                         // If it is type text 
                         else{
+                            $controllerCall = $ctrl."$var[2]";
                             
+                            var_dump(method_exists(substr($ctrl,0,-2), "$var[2]"));
+                            // $controllerCall($var[1]);
                         }
 /*                         $controllerCall = $ctrl."{$var[1]}";
                         $controllerCall($var[2]); */

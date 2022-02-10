@@ -40,4 +40,11 @@ use webfiles\app\models\Query;
             $queryResult = Query::single(self::$table, "id = {$id}");
             self::render('single', ["userData" => $queryResult]);
         }
+
+        public static function edit($userName){
+
+            /* Render the default view, array with title and the technology */
+            self::render('edit', ["Name"=>$userName]);
+        }
+
     }
