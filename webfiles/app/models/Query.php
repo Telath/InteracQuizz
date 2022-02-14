@@ -34,7 +34,7 @@
             return Database::dbConnect()->query($req)->fetchAll(\PDO::FETCH_ASSOC);
         }
 
-        public static function single(string $table, string $where):array
+        public static function single(string $table, string $where)
         {
             $req = "SELECT * FROM {$table} WHERE {$where}";
             return Database::dbConnect()->query($req)->fetch(\PDO::FETCH_ASSOC);

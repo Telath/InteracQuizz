@@ -31,43 +31,48 @@
                         $controllerCall();
                         break;
                     case 2:
-
+                        // If the 2nd parameter is integer //
                         if(ctype_digit($var[1])){
-                            /* Loads single */
+                            /* Loads find method */
                             $controllerCall = $ctrl."find";
                             $controllerCall($var[1]);
                         }
                         else{
+                            /* Loads default method */
                             $controllerCall = $ctrl."default";
                             $controllerCall($var[1]);
                         }
 
-                        /* Loads single */
-                        // $controllerCall = $ctrl."find";
-                        // $controllerCall($var[1]);
-/*                         QuizzController::find("html"); */
-
                         break;
+
                     case 3:
                         // If the 3rd parameter is integer //
                         if(ctype_digit($var[2])){
-                            /* Loads single */
+                            /* Loads find method */
                             $controllerCall = $ctrl."find";
                             $controllerCall($var[1], $var[2]);
-                            /*                             echo "Salut les potes à la compote."; */
-                            /*                             QuizzController::find("html", "1");
-                            UserController::find("session", "1"); */
                         }
                         
                         // If it is type text 
                         else{
-                            $controllerCall = $ctrl."$var[2]";
+                            /* If the method exist */
+                            if (method_exists(substr($ctrl,0,-2), "$var[2]")){
+                                $controllerCall = $ctrl."$var[2]";
+                                var_dump($controllerCall);
+                                $controllerCall($var[1]);
+                            }
+                            /* Render to 404.php */
+                            else{
+                                echo "404";
+                            }
                             
-                            var_dump(method_exists(substr($ctrl,0,-2), "$var[2]"));
-                            // $controllerCall($var[1]);
                         }
-/*                         $controllerCall = $ctrl."{$var[1]}";
-                        $controllerCall($var[2]); */
+
+                        break;
+
+                    default:
+                        /* If it's not the cases above */
+                        echo "404";
                         break;
                 } 
             }
